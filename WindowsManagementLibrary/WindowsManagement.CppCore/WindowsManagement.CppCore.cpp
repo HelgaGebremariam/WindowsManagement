@@ -10,7 +10,7 @@ __declspec(dllexport) int GetBatteryState()
 	SYSTEM_BATTERY_STATE outputBuffer;
 	long res = CallNtPowerInformation(infoLevel, NULL, 0, &outputBuffer, sizeof(outputBuffer));
 	if (outputBuffer.MaxCapacity == 0)
-		return 5;
+		return 0;
 	double remaining = outputBuffer.RemainingCapacity;
 	double max = outputBuffer.MaxCapacity;
 	double percent = (remaining / max) * 100;
